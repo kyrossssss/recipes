@@ -1,0 +1,185 @@
+/* Основные стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #5e390a;
+    transition: filter 0.3s ease;
+}
+
+
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px 30px;
+    background-color: #c87a14;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 20px;
+}
+
+.logo-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Навигация */
+.nav-section {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* Блок промо */
+.promo-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.promo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    position: relative;
+}
+
+.promo-item:first-child::after {
+    content: "";
+    position: absolute;
+    right: -20px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #e0e0e0;
+}
+
+.promo-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.photo-placeholder {
+    width: 200px;
+    height: 200px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    cursor: pointer;
+}
+
+/* Универсальная анимация для кнопок */
+button, .nav-button, .forum-button, .auth-button {
+    transition: all 0.3s ease;
+    transform: scale(1);
+    will-change: transform;
+    padding: 10px 15px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover, .nav-button:hover, .forum-button:hover, .auth-button:hover {
+    transform: scale(1.05);
+    background-color: #e0e0e0;
+}
+
+/* Стили для модального окна */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    display: none;
+}
+
+.login-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    z-index: 101;
+    width: 300px;
+    display: none;
+}
+
+.login-modal h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-modal form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-modal label {
+    font-size: 14px;
+    color: #555;
+}
+
+.login-modal input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}

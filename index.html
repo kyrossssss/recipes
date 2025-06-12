@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кулинарный сайт</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Затемнение фона (изначально скрыто) -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Модальное окно входа (изначально скрыто) -->
+    <div class="login-modal" id="loginModal">
+        <h3>Вход</h3>
+        <form>
+            <label for="email">Введите свой Gmail:</label>
+            <input type="email" id="email" placeholder="pablo228@gmail.com">
+            
+            <label for="password">Введите свой пароль:</label>
+            <input type="password" id="password" placeholder="••••••••">
+            
+            <button type="submit" class="submit-btn">Войти</button>
+        </form>
+    </div>
+
+    <header class="header">
+        <div class="logo-area">
+            <div class="logo-placeholder">ЛОГО</div>
+        </div>
+        
+        <div class="nav-section">
+            <div class="nav-buttons">
+                <button class="nav-button">Рецепты</button>
+                <button class="nav-button">Популярные рецепты</button>
+                <button class="nav-button">Лайфхаки</button>
+                <button class="nav-button">Тех поддержка</button>
+                <button class="forum-button">Форум</button>
+            </div>
+        </div>
+        
+        <div class="auth-buttons">
+            <button class="auth-button" id="loginBtn">Вход</button>
+            <button class="auth-button" id="registerBtn">Регистрация</button>
+        </div>
+    </header>
+    
+    <main>
+        <section class="promo-container">
+            <div class="promo-item">
+                <h2 class="promo-title">Акция и блюдо</h2>
+                <div class="photo-placeholder">кликабельное ФОТО</div>
+            </div>
+            
+            <div class="promo-item">
+                <h2 class="promo-title">Самое популярное блюдо дня</h2>
+                <div class="photo-placeholder">кликабельное ФОТО</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        Сайт предназначен для того, чтобы люди делились своими идеями.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
