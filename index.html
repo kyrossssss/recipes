@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кулинарный сайт</title>
+    <title>Вкусолюб</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -55,7 +55,14 @@
                 <button class="nav-button">Популярные рецепты</button>
                 <button class="nav-button">Лайфхаки</button>
                 <button class="nav-button">Тех поддержка</button>
-                <button class="forum-button">Форум</button>
+                <body>
+                    <button onclick="redirectToSite()">Форум</button>
+                    <script>
+                        function redirectToSite() {
+                            window.location.href = "forum(index).html";;
+                        }
+                    </script>
+                </body>
             </div>
         </div>
         
