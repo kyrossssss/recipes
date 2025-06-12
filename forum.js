@@ -1,4 +1,3 @@
-
 function openRecipe(recipeNum) {
      document.getElementById('recipe' + recipeNum).style.display = 'flex';
 }
@@ -23,7 +22,7 @@ function likeRecipe(recipeNum) {
     }, 300);
 }
 
-// Поиск рецептов
+
 const searchInput = document.querySelector('.search-input');
 const recipeCards = document.querySelectorAll('.recipe-card');
 
@@ -48,3 +47,15 @@ searchInput.addEventListener('input', function() {
                 }
             });
         }
+    
+function openRecipe(recipeNum) {
+    try {
+        const modal = document.getElementById('recipe' + recipeNum);
+        if (!modal) throw new Error('Modal not found');
+        modal.style.display = 'flex';
+    } catch (error) {
+        console.error('Error opening recipe:', error);
+    }
+}
+
+
