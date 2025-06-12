@@ -1,4 +1,3 @@
-/* Основные стили */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,7 +5,6 @@ body {
     background-color: #5e390a;
     transition: filter 0.3s ease;
 }
-
 
 .site-footer {
     text-align: center;
@@ -43,7 +41,7 @@ body {
     margin-bottom: 10px;
 }
 
-/* Навигация */
+
 .nav-section {
     display: flex;
     flex-grow: 1;
@@ -55,7 +53,7 @@ body {
     gap: 20px;
 }
 
-/* Блок промо */
+
 .promo-container {
     display: flex;
     justify-content: space-around;
@@ -102,7 +100,7 @@ body {
     cursor: pointer;
 }
 
-/* Универсальная анимация для кнопок */
+
 button, .nav-button, .forum-button, .auth-button {
     transition: all 0.3s ease;
     transform: scale(1);
@@ -120,7 +118,6 @@ button:hover, .nav-button:hover, .forum-button:hover, .auth-button:hover {
     background-color: #e0e0e0;
 }
 
-/* Стили для модального окна */
 .overlay {
     position: fixed;
     top: 0;
@@ -182,4 +179,32 @@ button:hover, .nav-button:hover, .forum-button:hover, .auth-button:hover {
 
 .submit-btn:hover {
     background-color: #45a049;
+} 
+
+.register-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    z-index: 101;
+    width: 300px;
+    display: none;
+}
+
+.error-message {
+    color: #ff4444;
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.login-modal input,
+.register-modal input {
+    width: 100%;
+    box-sizing: border-box;
 }
