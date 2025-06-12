@@ -57,14 +57,7 @@
                 <button class="nav-button">Популярные рецепты</button>
                 <button class="nav-button">Лайфхаки</button>
                 <button class="nav-button">Тех поддержка</button>
-                <body>
-                    <button onclick="redirectToSite()">Форум</button>
-                    <script>
-                        function redirectToSite() {
-                            window.location.href = "forum.html";;
-                        }
-                    </script>
-                </body>
+                <button onclick="redirectToSite()">Форум</button>
             </div>
         </div>
         
@@ -88,7 +81,7 @@
         </section>
     </main>
 
-   <footer class="site-footer">
+    <footer class="site-footer">
         <div class="bubbles">
             <div class="bubble"></div>
             <div class="bubble"></div>
@@ -102,38 +95,54 @@
         <div class="footer-container">
             <div class="footer-brand">
                 <h3>Вкусолюб</h3>
-                <p>Ваш надежный помощник в мире вкусной и здоровой еды. Рецепты, советы и вдохновение каждый день.</p>
+                <p class="main-text">Ваш надежный помощник в мире вкусной и полезной еды. Рецепты, советы и вдохновение каждый день!</p>
 
                 <div class="email-subscribe">
                     <input type="email" placeholder="Ваш email для новых рецептов">
-                    <button>Подписаться</button>
+                    <button onclick="subscribe()">Подписаться</button>
                 </div>
 
-                <p>Подписывайтесь</p>
+                <p class="sub-text">Присоединяйтесь к нашему кулинарному сообществу</p>
             </div>
 
             <div class="footer-links">
                 <h4>Навигация</h4>
                 <ul>
-                    <li><a href="#">Главная</a></li>
-                    <li><a href="#">Рецепты</a></li>
-                    <li><a href="#">Блог</a></li>
-                    <li><a href="#">Контакты</a></li>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Политика конфиденциальности</a></li>
+                    <li><a onclick="showInfo('main')">Главная</a></li>
+                    <li><a onclick="showInfo('recipes')">Рецепты</a></li>
+                    <li><a onclick="showInfo('blog')">Блог</a></li>
+                    <li><a onclick="showInfo('contacts')">Контакты</a></li>
+                    <li><a onclick="showInfo('about')">О нас</a></li>
+                    <li><a onclick="showInfo('privacy')">Политика конфиденциальности</a></li>
                 </ul>
             </div>
 
             <div class="footer-bottom">
                 <p>© 2025 Вкусолюб. Все права защищены.</p>
                 <div class="footer-contacts">
-                    <p>info@vkyooyub.ru</p>
-                    <p>+7 (999) 123-45-67</p>
+                    <p><a href="mailto:info@vkyooyub.ru">info@vkyooyub.ru</a></p>
+                    <p><a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Модальное окно для отображения информации -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Заголовок</h2>
+            <div id="modalContent">
+                <p>Содержимое модального окна</p>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
+    <script>
+        function redirectToSite() {
+            window.location.href = "forum.html";
+        }
+    </script>
 </body>
 </html>
