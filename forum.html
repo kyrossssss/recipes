@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кулинарный форум</title>
+    <link rel="stylesheet" href="forum(style).css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Кулинарный Форум</div>
+        <div class="auth-links">
+            <a href="#">Вход</a>
+            <a href="#">Регистрация</a>
+        </div>
+    </div>
+
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Поиск рецептов...">
+    </div>
+
+    <div class="recipe-container">
+        <!-- Рецепт 1 -->
+        <div class="recipe-card" onclick="openRecipe(1)">
+            <img src="цезарь.jpg" alt="Салат" class="recipe-image">
+            <div class="recipe-info">
+                <h3 class="recipe-title">Салат Цезарь</h3>
+                <p class="recipe-author">Автор: Мария</p>
+            </div>
+        </div>
+
+        <!-- Рецепт 2 -->
+        <div class="recipe-card" onclick="openRecipe(2)">
+            <img src="паста карбонара.jpg" alt="Паста" class="recipe-image">
+            <div class="recipe-info">
+                <h3 class="recipe-title">Паста Карбонара</h3>
+                <p class="recipe-author">Автор: Олег Бэбрович</p>
+            </div>
+        </div>
+
+        <!-- Рецепт 3 -->
+        <div class="recipe-card" onclick="openRecipe(3)">
+            <img src="бургер.jpg" class="recipe-image">
+            <div class="recipe-info">
+                <h3 class="recipe-title">Смачный Бургер</h3>
+                <p class="recipe-author">Автор: ...</p>
+            </div>
+        </div>
+
+        <!-- Рецепт 4 -->
+        <div class="recipe-card" onclick="openRecipe(4)">
+            <img src="пицца.jpg" class="recipe-image">
+            <div class="recipe-info">
+                <h3 class="recipe-title">Домашняя пицца</h3>
+                <p class="recipe-author">Автор: ...</p>
+            </div>
+        </div>
+
+        <!-- Рецепт 5 -->
+        <div class="recipe-card" onclick="openRecipe(5)">
+            <img src="шоколадный торт.jpg" class="recipe-image">
+            <div class="recipe-info">
+                <h3 class="recipe-title">Шоколадный торт</h3>
+                <p class="recipe-author">Автор: ...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Окно рецептов -->
+    <div id="recipe1" class="recipe-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal(1)">&times;</span>
+            <h2>Салат Цезарь</h2>
+            <p><strong>Автор:</strong> Мария</p>
+            <img src="цезарь.jpg" style="width:100%; max-height:300px; object-fit:cover; margin:10px 0;">
+            <h3>Ингредиенты:</h3>
+            <ul>
+                <li>Помидоры - 2 шт.</li>
+                <li>Огурцы - 1 шт.</li>
+                <li>Болгарский перец - 1 шт.</li>
+                <li>Красный лук - 1/4 шт.</li>
+                <li>Оливковое масло - 2 ст.л.</li>
+                <li>Лимонный сок - 1 ст.л.</li>
+                <li>Соль, перец по вкусу</li>
+            </ul>
+            <h3>Приготовление:</h3>
+            <p>1. Нарежьте все овощи кубиками.<br>2. Смешайте в миске.<br>3. Заправьте оливковым маслом и лимонным соком.<br>4. Посолите и поперчите по вкусу.</p>
+            <button class="like-btn" onclick="likeRecipe(1)">❤️ <span class="like-count" id="likes1">12</span></button>
+        </div>
+    </div>
+
+    <div id="recipe2" class="recipe-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal(2)">&times;</span>
+            <h2>Паста Карбонара</h2>
+            <p><strong>Автор:</strong> Алексей</p>
+            <img src="паста карбонара.jpg" style="width:100%; max-height:300px; object-fit:cover; margin:10px 0;">
+            <h3>Ингредиенты:</h3>
+            <ul>
+                <li>Спагетти - 400 г</li>
+                <li>Бекон - 200 г</li>
+                <li>Яйца - 4 шт. (3 желтка и 1 целое яйцо)</li>
+                <li>Сыр пармезан (тёртый) - 50 г</li>
+                <li>Масло сливочное - 2 ст. ложки</li>
+                <li>Масло оливковое - 1 ст. ложка</li>
+                <li>Чеснок - 2 зубчика</li>
+                <li>Соль - по вкусу</li>
+                <li>Перец чёрный молотый - по вкусу</li>
+            </ul>
+            <h3>Приготовление:</h3>
+            <p>1. Нарезаем бекон квадратиками.
+                  Два зубчика чеснока раздавливаем ножом.
+                  Разогреваем сковороду, растапливаем 1 ст. ложку сливочного масла и обжариваем бекон с чесноком.
+                  Жарим на слабом огне 10 минут, из бекона должен вытопиться жир, но бекон должен остаться мягким.
+                  После обжаривания чеснок удаляем..
+                  <br>2. В кипящую воду (2,3 л) добавляем 1 ст. ложку соли,
+                   1 ст. ложку оливкового масла и спагетти.
+                   Варим спагетти так, как указано на их упаковке..
+                  <br>3. Отделяем 3 желтка от яичных белков (белки здесь не понадобятся). 
+                  Кладем в миску желтки и одно яйцо, солим и перчим (по 1 щепотке), хорошо взбиваем.
+                  <br>4. Добавляем в яичную смесь 2 ст. ложки тёртого сыра, перемешиваем.
+                  <br>5. Готовые спагетти откидываем на дуршлаг, предварительно оставив 300 мл воды, в которой они варились.
+                  <br>6. Выключаем огонь под сковородой с беконом, добавляем спагетти и 1 ст.
+                         ложку сливочного масла.
+                         Вливаем взбитые яйца с сыром, тщательно всё перемешивая.
+                         Постепенно добавляем 300 мл воды от спагетти и постоянно перемешиваем,
+                         яйца не должны свернуться.
+                  <br>7. Чтобы соус немного загустел, под сковородой включаем слабый огонь и постоянно перемешиваем примерно 1 минуту, чтобы яйца не сварились.
+                         Если соус получится очень густой, можете добавить еще воды.
+                  <br>8. Выкладываем спагетти на тарелку, сверху посыпаем черным молотым перцем и тёртым сыром.
+                         Паста карбонара готова.
+                         Приятного аппетита!
+                </p>
+            <button class="like-btn" onclick="likeRecipe(2)">❤️ <span class="like-count" id="likes2">24</span></button>
+        </div>
+    </div>
+
+    <div id="recipe3" class="recipe-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal(3)">&times;</span>
+            <h2>Смачный Бургер</h2>
+            <p><strong>Автор:</strong> Анна</p>
+            <img src="бургер.jpg" style="width:100%; max-height:300px; object-fit:cover; margin:10px 0;">
+            <h3>Ингредиенты:</h3>
+            <ul>
+                <li>Булочки для бургера - 3 шт.</li>
+                <li>Фарш мясной - 400 г</li>
+                <li>Сыр твердый - 30-50 г</li>
+                <li>Помидор - 1-2 шт.</li>
+                <li>Огурец соленый - 1 шт.</li>
+                <li>Лук синий (фиолетовый) - 1 шт.</li>
+                <li>Салатные (капустные) листья - 5-6 шт.</li>
+                <li>Майонез - 2 ч. л</li>
+                <li>Кетчуп (любой) - 2 ч. л.</li>
+                <li>Соль - по вкусу</li>
+                
+            </ul>
+            <h3>Приготовление:</h3>
+            <p>1. ...<br>2. ...<br>3. ...</p>
+            <button class="like-btn" onclick="likeRecipe(3)">❤️ <span class="like-count" id="likes3">18</span></button>
+        </div>
+    </div>
+
+    <div id="recipe4" class="recipe-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal(4)">&times;</span>
+            <h2>Домашняя пицца</h2>
+            <p><strong>Автор:</strong> Иван</p>
+            <img src="пицца.jpg" style="width:100%; max-height:300px; object-fit:cover; margin:10px 0;">
+            <h3>Ингредиенты:</h3>
+            <ul>
+                <li>Тесто для пиццы - 300 г</li>
+                <li>Томатный соус - 100 г</li>
+                <li>Моцарелла - 150 г</li>
+                <li>Пепперони - 50 г</li>
+                <li>Грибы - 50 г</li>
+                <li>Оливки - по вкусу</li>
+            </ul>
+            <h3>Приготовление:</h3>
+            <p>1. Раскатайте тесто.<br>2. Намажьте томатный соус.<br>3. Добавьте начинку.<br>4. Выпекайте при 220°C 10-15 минут.</p>
+            <button class="like-btn" onclick="likeRecipe(4)">❤️ <span class="like-count" id="likes4">32</span></button>
+        </div>
+    </div>
+
+    <div id="recipe5" class="recipe-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal(5)">&times;</span>
+            <h2>Шоколадный торт</h2>
+            <p><strong>Автор:</strong> Елена</p>
+            <img src="шоколадный торт.jpg" style="width:100%; max-height:300px; object-fit:cover; margin:10px 0;">
+            <h3>Ингредиенты:</h3>
+            <ul>
+                <li>Мука - 200 г</li>
+                <li>Какао - 50 г</li>
+                <li>Сахар - 200 г</li>
+                <li>Яйца - 3 шт.</li>
+                <li>Сливочное масло - 150 г</li>
+                <li>Разрыхлитель - 1 ч.л.</li>
+            </ul>
+            <h3>Приготовление:</h3>
+            <p>1. Смешайте сухие ингредиенты.<br>2. Добавьте растопленное масло и яйца.<br>3. Выпекайте при 180°C 30-35 минут.<br>4. Остудите перед подачей.</p>
+            <button class="like-btn" onclick="likeRecipe(5)">❤️ <span class="like-count" id="likes5">45</span></button>
+        </div>
+    </div>
+
+    <script src="forum(script).js"></script>
+        
