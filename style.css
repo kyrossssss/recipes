@@ -1,44 +1,278 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #5e390a;
-    transition: filter 0.3s ease;
+    background-color: #7070706e; 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 100vh; 
 }
 
 .site-footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 14px;
-    color: #ccc;
-}
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid #e0e0e0;
+            font-family: Arial, sans-serif;
+        }
 
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-brand {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand h3 {
+            color: #ff6b6b;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .email-subscribe {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .email-subscribe input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            flex-grow: 1;
+        }
+
+        .email-subscribe button {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .email-subscribe button:hover {
+            background-color: #ff5252;
+        }
+
+        .footer-links {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4 {
+            color: #ff6b6b;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #ff6b6b;
+        }
+
+        .footer-bottom {
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 14px;
+        }
+
+        .footer-contacts {
+            margin-top: 10px;
+        }
+
+        .footer-contacts p {
+            margin: 5px 0;
+        }
+
+        /* Анимация пузырьков */
+        .bubbles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            background: rgba(255, 107, 107, 0.2);
+            border-radius: 50%;
+            animation: rise 15s infinite ease-in;
+        }
+
+        .bubble:nth-child(1) {
+            width: 40px;
+            height: 40px;
+            left: 10%;
+            animation-duration: 8s;
+        }
+
+        .bubble:nth-child(2) {
+            width: 20px;
+            height: 20px;
+            left: 20%;
+            animation-duration: 5s;
+            animation-delay: 1s;
+        }
+
+        .bubble:nth-child(3) {
+            width: 50px;
+            height: 50px;
+            left: 35%;
+            animation-duration: 7s;
+            animation-delay: 2s;
+        }
+
+        .bubble:nth-child(4) {
+            width: 30px;
+            height: 30px;
+            left: 50%;
+            animation-duration: 11s;
+            animation-delay: 0s;
+        }
+
+        .bubble:nth-child(5) {
+            width: 25px;
+            height: 25px;
+            left: 65%;
+            animation-duration: 6s;
+            animation-delay: 1s;
+        }
+
+        .bubble:nth-child(6) {
+            width: 45px;
+            height: 45px;
+            left: 75%;
+            animation-duration: 8s;
+            animation-delay: 3s;
+        }
+
+        .bubble:nth-child(7) {
+            width: 35px;
+            height: 35px;
+            left: 85%;
+            animation-duration: 9s;
+            animation-delay: 2s;
+        }
+
+        @keyframes rise {
+            0% {
+                bottom: -100px;
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(100px);
+            }
+            100% {
+                bottom: 100%;
+                transform: translateX(-100px);
+            }
+        }
 .header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: 15px 30px;
-    background-color: #c87a14;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    align-items: center; 
+    background: url(razdel.jpg) no-repeat center center;
+    background-size: cover;
+    padding: 15px 30px; 
+    color: white;
+    position: relative;
 }
 
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3); 
+    z-index: 0;
+}
+
+
+.header > * {
+    position: relative;
+    z-index: 1;
+}
+
+.header .nav-button,
+.header .forum-button,
+.header .auth-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+}
+
+.header .nav-button:hover,
+.header .forum-button:hover,
+.header .auth-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
 .logo-area {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-right: 20px;
+    z-index: 10; /* Чтобы лого было поверх затемнения */
 }
 
-.logo-placeholder {
+.logo-link {
+    display: block;
     width: 80px;
     height: 80px;
+}
+
+.logo-image {
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-    margin-bottom: 10px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+    transform: scale(1.05);
 }
 
 
@@ -58,7 +292,7 @@ body {
     display: flex;
     justify-content: space-around;
     padding: 30px;
-    background-color: white;
+    background: url(акции\ .jpg);
     margin: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -99,8 +333,35 @@ body {
     color: #666;
     cursor: pointer;
 }
+.auth-button {
+    transition: all 0.3s ease;
+    transform: scale(1);
+    will-change: transform;
+    padding: 8px 20px; /* Оптимальный размер */
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px; /* Закругленные углы */
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.auth-button:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
 
 
+.auth-buttons {
+    display: flex;
+    gap: 15px; 
+    margin-left: auto;
+    align-items: center;
+}
 button, .nav-button, .forum-button, .auth-button {
     transition: all 0.3s ease;
     transform: scale(1);
@@ -134,7 +395,7 @@ button:hover, .nav-button:hover, .forum-button:hover, .auth-button:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
+    background: url(лого.jpg);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
