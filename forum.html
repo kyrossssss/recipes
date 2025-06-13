@@ -203,6 +203,52 @@
         </div>
     </div>
 
-    <script src="forum.js"></script>
+             <button class="create-recipe-btn" onclick="openCreateRecipeModal()">+</button>
+
+    <!-- Модальное окно создания рецепта -->
+    <div id="createRecipeModal" class="recipe-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('create')">&times;</span>
+            <h2>Создать новый рецепт</h2>
         
+            <form id="recipeForm">
+                <div class="form-group">
+                    <label for="recipeName">Название рецепта:</label>
+                    <input type="text" id="recipeName" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="recipeAuthor">Ваше имя:</label>
+                    <input type="text" id="recipeAuthor" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="recipeImage">Фото блюда:</label>
+                    <input type="file" id="recipeImage" accept="image/*">
+                    <div id="imagePreview" class="image-preview"></div>
+                </div>
+            
+                <div class="form-group">
+                    <label>Ингредиенты:</label>
+                    <div id="ingredientsList">
+                        <div class="ingredient-item">
+                            <input type="text" class="ingredient-input" placeholder="Ингредиент">
+                            <button type="button" class="remove-ingredient" onclick="removeIngredient(this)">×</button>
+                        </div>
+                    </div>
+                    <button type="button" class="add-ingredient" onclick="addIngredient()">+ Добавить ингредиент</button>
+                </div>
+            
+                <div class="form-group">
+                    <label for="recipeInstructions">Инструкция приготовления:</label>
+                    <textarea id="recipeInstructions" rows="5" required></textarea>
+                </div>
+            
+                <button type="submit" class="submit-btn">Опубликовать рецепт</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="forum.js"></script>
         
