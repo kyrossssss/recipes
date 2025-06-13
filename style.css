@@ -545,3 +545,9 @@ button:hover, .nav-button:hover, .forum-button:hover, .auth-button:hover {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 50px; /* Добавьте этот отступ */
+}
