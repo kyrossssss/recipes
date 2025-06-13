@@ -176,4 +176,24 @@ window.onclick = function(event) {
     if (event.target == modal) {
         closeModal();
     }
+
+    function showSupportMessage() {
+    alert("Извините, но тех поддержка временно не работает :(");
 }
+}
+
+document.getElementById('recipesBtn').addEventListener('click', function(e) {
+    const dropdown = document.getElementById('recipesDropdown');
+    dropdown.classList.toggle('show');
+    e.stopPropagation(); 
+});
+
+window.addEventListener('click', function() {
+    document.getElementById('recipesDropdown').classList.remove('show');
+});
+
+document.querySelectorAll('.dropdown-item').forEach(item => {
+    item.addEventListener('click', function() {
+        alert('Выбран раздел: ' + this.textContent);
+    });
+});
