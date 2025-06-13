@@ -53,10 +53,24 @@
         
         <div class="nav-section">
             <div class="nav-buttons">
-                <button class="nav-button">Рецепты</button>
-                <button class="nav-button">Популярные рецепты</button>
-                <button class="nav-button">Лайфхаки</button>
-                <button class="nav-button">Тех поддержка</button>
+                <div class="nav-button-container">
+    <button class="nav-button" id="recipesBtn">Рецепты</button>
+    <div class="dropdown-menu" id="recipesDropdown">
+        <button class="dropdown-item">Салаты</button>
+        <button class="dropdown-item">Мясное</button>
+        <button class="dropdown-item">Супы</button>
+        <button class="dropdown-item">Горячая</button>
+        <button class="dropdown-item">Холодная</button>
+        <button class="dropdown-item">Русская Z</button>
+    </div>
+</div>
+                <button onclick="redirectToLIfeHack()">Лайфхаки</button>
+                <button class="nav-button" onclick="showSupportMessage()">Тех поддержка</button>
+                <script>
+                function showSupportMessage() {
+    alert("Извините, но тех поддержка временно не работает :(");
+}
+                </script>
                 <button onclick="redirectToSite()">Форум</button>
             </div>
         </div>
@@ -70,13 +84,13 @@
     <main>
         <section class="promo-container">
             <div class="promo-item">
-                <h2 class="promo-title">Акция и блюдо</h2>
-                <div class="photo-placeholder">кликабельное ФОТО</div>
+                <h2 class="promo-title">Акции 90%</h2>
+                <img src="цезарь.jpg" alt="Логотип сайта" class="logo-image">
             </div>
             
             <div class="promo-item">
                 <h2 class="promo-title">Самое популярное блюдо дня</h2>
-                <div class="photo-placeholder">кликабельное ФОТО</div>
+                <img src="бургер.jpg" alt="Логотип сайта" class="logo-image">
             </div>
         </section>
     </main>
@@ -142,6 +156,9 @@
     <script>
         function redirectToSite() {
             window.location.href = "forum.html";
+        }
+         function redirectToLIfeHack() {
+            window.location.href = "https://food.inmyroom.ru/posts/28019-100-layfhakov-kotorye-sdelayut-vashu-kulinarnuyu-zhizn-esche-vkusnee-i-prosche";
         }
     </script>
 </body>
