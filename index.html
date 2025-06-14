@@ -12,12 +12,14 @@
 
     <div class="login-modal" id="loginModal">
         <h3>Вход</h3>
-        <form>
-            <label for="email">Введите свой Gmail:</label>
-            <input type="email" id="email" placeholder="example@gmail.com">
+        <form id="loginForm">
+            <label for="email">Введите свой Email:</label>
+            <input type="email" id="email" placeholder="example@gmail.com" required>
             
             <label for="password">Введите свой пароль:</label>
-            <input type="password" id="password" placeholder="••••••••">
+            <input type="password" id="password" placeholder="••••••••" required>
+            
+            <div id="loginError" class="error-message" style="display: none;">Неверный email или пароль!</div>
             
             <button type="submit" class="submit-btn">Войти</button>
         </form>
@@ -33,12 +35,13 @@
             <input type="email" id="regEmail" placeholder="example@gmail.com" required>
             
             <label for="regPassword">Пароль:</label>
-            <input type="password" id="regPassword" placeholder="••••••••" required>
+            <input type="password" id="regPassword" placeholder="••••••••" required minlength="6">
             
             <label for="regPasswordConfirm">Повторите пароль:</label>
             <input type="password" id="regPasswordConfirm" placeholder="••••••••" required>
             
-            <div id="passwordError" class="error-message">Пароли не совпадают!</div>
+            <div id="passwordError" class="error-message" style="display: none;">Пароли не совпадают!</div>
+            <div id="registerSuccess" class="success-message" style="display: none;">Регистрация прошла успешно! Теперь вы можете войти.</div>
             
             <button type="submit" class="submit-btn">Зарегистрироваться</button>
         </form>
@@ -78,6 +81,8 @@
         <div class="auth-buttons">
             <button class="auth-button" id="loginBtn">Вход</button>
             <button class="auth-button" id="registerBtn">Регистрация</button>
+            <div id="userGreeting" style="display: none;"></div>
+            <button class="auth-button" id="logoutBtn" style="display: none;">Выйти</button>
         </div>
     </header>
     
@@ -152,13 +157,162 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
     <script>
+        // Проверяем, есть ли зарегистрированные пользователи в localStorage
+        if (!localStorage.getItem('users')) {
+            localStorage.setItem('users', JSON.stringify([]));
+        }
+
+        // Получаем элементы DOM
+        const loginBtn = document.getElementById('loginBtn');
+        const registerBtn = document.getElementById('registerBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const userGreeting = document.getElementById('userGreeting');
+        const loginModal = document.getElementById('loginModal');
+        const registerModal = document.getElementById('registerModal');
+        const overlay = document.getElementById('overlay');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const passwordError = document.getElementById('passwordError');
+        const registerSuccess = document.getElementById('registerSuccess');
+        const loginError = document.getElementById('loginError');
+
+        // Проверяем, авторизован ли пользователь при загрузке страницы
+        checkAuthStatus();
+
+        // Открытие модального окна входа
+        loginBtn.addEventListener('click', () => {
+            loginModal.style.display = 'block';
+            overlay.style.display = 'block';
+            registerModal.style.display = 'none';
+        });
+
+        // Открытие модального окна регистрации
+        registerBtn.addEventListener('click', () => {
+            registerModal.style.display = 'block';
+            overlay.style.display = 'block';
+            loginModal.style.display = 'none';
+        });
+
+        // Закрытие модальных окон при клике на overlay
+        overlay.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+            registerModal.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+
+        // Обработка формы входа
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            const users = JSON.parse(localStorage.getItem('users'));
+            const user = users.find(u => u.email === email && u.password === password);
+            
+            if (user) {
+                // Успешный вход
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                checkAuthStatus();
+                loginModal.style.display = 'none';
+                overlay.style.display = 'none';
+                loginError.style.display = 'none';
+                alert(`Добро пожаловать, ${user.name}!`);
+            } else {
+                // Неверные данные
+                loginError.style.display = 'block';
+            }
+        });
+
+        // Обработка формы регистрации
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            const password = document.getElementById('regPassword').value;
+            const passwordConfirm = document.getElementById('regPasswordConfirm').value;
+            
+            if (password !== passwordConfirm) {
+                passwordError.style.display = 'block';
+                registerSuccess.style.display = 'none';
+                return;
+            }
+            
+            passwordError.style.display = 'none';
+            
+            const users = JSON.parse(localStorage.getItem('users'));
+            
+            // Проверяем, есть ли уже пользователь с таким email
+            if (users.some(u => u.email === email)) {
+                alert('Пользователь с таким email уже зарегистрирован!');
+                return;
+            }
+            
+            // Добавляем нового пользователя
+            const newUser = { name, email, password };
+            users.push(newUser);
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            // Показываем сообщение об успешной регистрации
+            registerSuccess.style.display = 'block';
+            
+            // Очищаем форму
+            registerForm.reset();
+            
+            // Автоматически переключаем на форму входа через 2 секунды
+            setTimeout(() => {
+                registerModal.style.display = 'none';
+                loginModal.style.display = 'block';
+                registerSuccess.style.display = 'none';
+                document.getElementById('email').value = email;
+            }, 2000);
+        });
+
+        // Выход из системы
+        logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('currentUser');
+            checkAuthStatus();
+            alert('Вы успешно вышли из системы.');
+        });
+
+        // Проверка статуса авторизации
+        function checkAuthStatus() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (currentUser) {
+                // Пользователь авторизован
+                loginBtn.style.display = 'none';
+                registerBtn.style.display = 'none';
+                userGreeting.style.display = 'block';
+                logoutBtn.style.display = 'block';
+                userGreeting.textContent = `Привет, ${currentUser.name}!`;
+            } else {
+                // Пользователь не авторизован
+                loginBtn.style.display = 'block';
+                registerBtn.style.display = 'block';
+                userGreeting.style.display = 'none';
+                logoutBtn.style.display = 'none';
+            }
+        }
+
         function redirectToSite() {
             window.location.href = "forum.html";
         }
-         function redirectToLIfeHack() {
+        
+        function redirectToLIfeHack() {
             window.location.href = "https://food.inmyroom.ru/posts/28019-100-layfhakov-kotorye-sdelayut-vashu-kulinarnuyu-zhizn-esche-vkusnee-i-prosche";
+        }
+
+        function subscribe() {
+            const emailInput = document.querySelector('.email-subscribe input');
+            if (emailInput.value) {
+                alert(`Спасибо за подписку, ${emailInput.value}! Новые рецепты будут приходить вам на почту.`);
+                emailInput.value = '';
+            } else {
+                alert('Пожалуйста, введите ваш email для подписки.');
+            }
         }
     </script>
 </body>
