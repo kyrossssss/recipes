@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Лайфхаки кулинарии — Советы по хранению салата</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Верхняя шапка -->
+  <header>
+    <div class="header-title">Лайфхаки кулинарии</div>
+    <nav class="header-links" aria-label="Ссылки входа и регистрации">
+    </nav>
+  </header>
+  
+  <!-- Поисковая строка -->
+  <section class="search-section" aria-label="Поиск лайфхаков">
+    <form class="search-box" autocomplete="off" role="search">
+      <input type="search" placeholder="Поиск лайфхаков..." aria-label="Поиск лайфхаков" />
+    </form>
+  </section>
+
+  <!-- Основная секция -->
+  <div class="center-container">
+    <div class="white-block">
+      <div class="main-tip-title">
+        Если вы хотите сохранить салат свежим
+      </div>
+      <div class="main-tip-desc">
+        Положите сверху под крышку бумажное полотенце, чтобы оно впитало влагу.<br>
+        На фото справа салат на 4 день.
+      </div>
+      <div class="two-columns">
+  <!-- Лайфхак про салат -->
+  <div class="white-block">
+    <div class="main-tip-title">
+      Если вы хотите сохранить салат свежим
+    </div>
+    <div class="main-tip-desc">
+      Положите сверху под крышку бумажное полотенце, чтобы оно впитало влагу.<br>
+      На фото справа салат на 4 день.
+    </div>
+
+    <!-- Галерея изображений -->
+    <div class="images-row">
+      <div class="image-item">
+        <div class="image-label">Салат 1</div>
+         <img src="../photo/salat.png" class="salads-image">
+      </div>
+      <div class="image-item">
+        <div class="image-label">Салат 2</div>
+        <img src="../photo/xz.png" class="salads-image">
+      </div>
+      <div class="image-item">
+        <div class="image-label">Салат 3</div>
+        <img src="../photo/png.png" class="salads-image">
+      </div>
+    </div>
+    <div class="image-caption">
+      На фото: контейнеры с салатом, салат под бумажным полотенцем, салат на 4-й день хранения.
+    </div>
+
+    <!-- Кнопки -->
+    <div class="tip-buttons">
+      <button class="btn btn-save">💾 Сохранить</button>
+      <button class="btn btn-share">🔗 Поделиться</button>
+    </div>
+  </div>
+
+ <!-- Лайфхак про ветчину -->
+<div class="white-block">
+  <div class="main-tip-title">Лайфхак с ветчиной</div>
+  <div class="main-tip-desc">
+    Если у вас портится ветчина или вы устали делать с ней бутерброды, просто заверните ее в слоеное тесто, внутри положите сыр бри, а после приготовления ешьте с клюквенным соусом и горчицей.
+  </div>
+
+  <!-- Изображение с ветчиной -->
+  <div class="image-container">
+    <img src="../photo/ham.png" alt="Ветчина" class="vetchina-image" onclick="zoomImage(this)" />
+  </div>
+
+
+
+    <!-- Кнопки -->
+    <div class="tip-buttons">
+      <button class="btn btn-save">💾 Сохранить</button>
+      <button class="btn btn-share">🔗 Поделиться</button>
+    </div>
+  </div>
+</div>
+     
+
+  <!-- Контейнер для полноразмерного изображения -->
+  <div id="full-image" class="full-image">
+    <span class="close-btn" onclick="hideFullSize()">×</span>
+    <img id="full-img" src="" alt=""/>
+  </div>
+
+  <!-- Подключаем внешний JS-файл -->
+  <script src="script.js"></script>
+</body>
+</html>
+
